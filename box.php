@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <div class="left-button">
-        <a href="index.html"><button class="back-button">Back</button></a>
+        <a href="index.php"><button class="back-button">Back</button></a>
       </div>
     </div>
   </body>

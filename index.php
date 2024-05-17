@@ -16,8 +16,8 @@
     </div>
     <div class="container">
       <div class="top-buttons">
-        <a href="box.html"><button class="box-btn">Box</button></a>
-        <a href="contacts.html"
+        <a href="box.php"><button class="box-btn">Box</button></a>
+        <a href="contacts.php"
           ><button class="contacts-btn">Contacts</button></a
         >
       </div>
