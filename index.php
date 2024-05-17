@@ -20,9 +20,15 @@
             <a href="contacts.php"><button class="contacts-btn">Contacts</button></a>
         </div>
         <div class="buttons">
-            <button onclick="addToSidebar('Shower', 10)">Shower</button>
-            <button onclick="addToSidebar('Hair', 20)">Hair</button>
-            <button onclick="addToSidebar('Beard', 40)">Beard</button>
+        <?php
+            require "connections.php";
+            $result1 = mysqli_query($conn, "SELECT * FROM `services`");
+            while ($row = mysqli_fetch_array($result1)) {
+                $type =$row['type'];
+                $price = $row['price'];
+                echo "<button onclick=\"addToSidebar('$type', $price)\">$type - $ $price</button>";
+            }
+            ?>
         </div>
     </div>
     <script src="script.js"></script>
