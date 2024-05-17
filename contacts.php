@@ -19,7 +19,7 @@
                     require "connections.php";
                     $sql = mysqli_query($conn, "SELECT * FROM `customer`");
                     while ($row = mysqli_fetch_array($sql)) {
-                        $name = $row['name'];
+                        $name = $row['Cname'];
                         $nbr = $row['ph_number'];
                         $dob = $row['DoB'];
                         $address = $row['address'];
@@ -61,7 +61,7 @@
                     $nb = mysqli_real_escape_string($conn, $_POST['nb']);
                     $bday = mysqli_real_escape_string($conn, $_POST['bday']);
                     $address = mysqli_real_escape_string($conn, $_POST['address']);
-                    $query = "INSERT INTO `customer`(`name`, `ph_number`, `DoB`, `address`) VALUES ('$name', '$nb', '$bday', '$address')";
+                    $query = "INSERT INTO `customer`(`Cname`, `ph_number`, `DoB`, `address`) VALUES ('$name', '$nb', '$bday', '$address')";
                     if (mysqli_query($conn, $query)) {
                         echo "<p>Contact added.</p>";
                     } else {
