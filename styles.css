@@ -63,7 +63,7 @@ body {
   height: 100vh;
 }
 
-.top-button {
+.top-buttons {
   margin-top: 20px;
   text-align: center;
   width: 100%;
@@ -76,6 +76,7 @@ body {
   align-items: center;
   flex-grow: 1;
 }
+
 .buttons button:hover {
   background-color: rgb(139, 138, 138);
 }
@@ -109,14 +110,16 @@ body {
   top: 20px;
 }
 
-.box-btn {
+.box-btn,
+.contacts-btn {
   border-radius: 50px;
   padding: 10px 40px;
   cursor: pointer;
   border: 2px solid darkgreen;
 }
 
-.box-btn:hover {
+.box-btn:hover,
+.contacts-btn:hover {
   background-color: rgb(139, 138, 138);
   color: black;
 }
