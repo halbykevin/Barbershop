@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2024 at 03:00 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: May 17, 2024 at 11:10 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,13 +37,6 @@ CREATE TABLE `bill` (
   `t_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `bill`
---
-
-INSERT INTO `bill` (`b_id`, `date`, `amount`, `services`, `c_id`, `w_id`, `t_id`) VALUES
-(1, '2024-04-02', 40, 'Hair, Beard', 3, 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -52,7 +45,7 @@ INSERT INTO `bill` (`b_id`, `date`, `amount`, `services`, `c_id`, `w_id`, `t_id`
 
 CREATE TABLE `customer` (
   `c_id` int(11) NOT NULL,
-  `Cname` varchar(30) NOT NULL,
+  `name` varchar(30) NOT NULL,
   `ph_number` int(11) NOT NULL,
   `DoB` date NOT NULL,
   `address` varchar(50) NOT NULL
@@ -62,12 +55,10 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `Cname`, `ph_number`, `DoB`, `address`) VALUES
+INSERT INTO `customer` (`c_id`, `name`, `ph_number`, `DoB`, `address`) VALUES
 (1, 'jimmy bay kevin', 1234567890, '2003-12-17', 'khaldiye l em'),
 (2, 'kevin halby', 1234567890, '0000-00-00', 'khaldiyeh'),
-(3, 'dory issa', 75348583, '3843-01-01', 'Akbeh'),
-(4, 'sdfsdf', 353, '2001-04-05', 'adasdad'),
-(5, 'sdfsdf', 353, '2001-04-05', 'adasdad');
+(3, 'dory issa', 75348583, '3843-01-01', 'Akbeh');
 
 -- --------------------------------------------------------
 
@@ -85,9 +76,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`type`, `price`) VALUES
-('Beard', 40),
-('Hair', 20),
-('Shower', 10);
+('Beard', 0),
+('Hair', 0),
+('Shower', 0);
 
 -- --------------------------------------------------------
 
@@ -108,7 +99,7 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`t_id`, `amount`, `date`, `details`, `type`) VALUES
-(1, 20, '2024-05-17', 'Hair service', 'checkin');
+(1, 20, '2024-05-17', 'Hair service', 'Service');
 
 -- --------------------------------------------------------
 
@@ -118,16 +109,8 @@ INSERT INTO `transaction` (`t_id`, `amount`, `date`, `details`, `type`) VALUES
 
 CREATE TABLE `worker` (
   `w_id` int(11) NOT NULL,
-  `Wname` varchar(30) NOT NULL
+  `name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `worker`
---
-
-INSERT INTO `worker` (`w_id`, `Wname`) VALUES
-(1, 'Issa'),
-(2, 'Zouheir');
 
 --
 -- Indexes for dumped tables
@@ -171,16 +154,10 @@ ALTER TABLE `worker`
 --
 
 --
--- AUTO_INCREMENT for table `bill`
---
-ALTER TABLE `bill`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transaction`
@@ -192,7 +169,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `w_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
