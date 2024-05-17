@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Selection</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Selected Services</h2>
+      <ul id="selectedServices"></ul>
+      <div class="total">
+        <strong>Total:</strong> $<span id="totalAmount">0</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="buttons">
+        <button onclick="addToSidebar('Shower', 10)">Shower - $10</button>
+        <button onclick="addToSidebar('Hair', 20)">Hair - $20</button>
+        <button onclick="addToSidebar('Beard', 40)">Beard - $40</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
