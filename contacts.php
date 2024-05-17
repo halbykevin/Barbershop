@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="left-button">
-            <a href="index.html"><button class="back-button">Back</button></a>
+            <a href="index.php"><button class="back-button">Back</button></a>
         </div>
         <div class="content">
             <input type="text" id="searchBar" placeholder="Search contacts...">
@@ -52,6 +52,7 @@
                     <button type="submit" class="save-btn" name="sb">Save Contact</button>
                 </form>
                 <?php
+                require "connections.php";
                 if (isset($_POST['sb'])) {
                     $name = $_POST['name'];
                     $nb = $_POST['nb'];
@@ -60,7 +61,8 @@
                     $query = "INSERT INTO `customer`(`name`, `ph_number`, `DoB`, `address`) VALUES ('$name', '$nb', '$bday', '$address')";
                     if (mysqli_query($conn, $query)) {
                         echo "<p>Contact added.</p>";
-                    }
+                    } else{echo "<p>failed.</p>";}
+                    
                 }
                 ?>
             </div>
