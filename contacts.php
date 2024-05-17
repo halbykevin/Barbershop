@@ -32,7 +32,7 @@
         <div class="right-section">
             <button class="create-btn" onclick="showForm()">Create New Contact</button>
             <div id="contactForm" class="hidden">
-                <form onsubmit="saveContact(event)" method="POST">
+                <form action=<?php echo $_SERVER['PHP_SELF']; ?> method="POST">
                     <div>
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -52,17 +52,22 @@
                     <button type="submit" class="save-btn" name="sb">Save Contact</button>
                 </form>
                 <?php
+                error_reporting(E_ALL);
+                ini_set('display_errors', 1);
+                
                 require "connections.php";
                 if (isset($_POST['sb'])) {
-                    $name = $_POST['name'];
-                    $nb = $_POST['nb'];
-                    $bday = $_POST['bday'];
-                    $address = $_POST['address'];
+                    $name = mysqli_real_escape_string($conn, $_POST['name']);
+                    $nb = mysqli_real_escape_string($conn, $_POST['nb']);
+                    $bday = mysqli_real_escape_string($conn, $_POST['bday']);
+                    $address = mysqli_real_escape_string($conn, $_POST['address']);
                     $query = "INSERT INTO `customer`(`name`, `ph_number`, `DoB`, `address`) VALUES ('$name', '$nb', '$bday', '$address')";
                     if (mysqli_query($conn, $query)) {
                         echo "<p>Contact added.</p>";
-                    } else{echo "<p>failed.</p>";}
-                    
+                    } else {
+                        echo "<p>Failed to add contact: " . mysqli_error($conn) . "</p>";
+                    }
+                    mysqli_close($conn);
                 }
                 ?>
             </div>
