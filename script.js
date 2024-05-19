@@ -8,6 +8,15 @@ function addToSidebar(service, amount) {
 
   totalAmount += amount;
   document.getElementById("totalAmount").textContent = totalAmount;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "index.php?amount=" + totalAmount);
+  //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+    }
+  };
 }
 
 function removeFromSidebar(element, amount) {
@@ -16,11 +25,27 @@ function removeFromSidebar(element, amount) {
 
   totalAmount -= amount;
   document.getElementById("totalAmount").textContent = totalAmount;
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "index.php?amount=" + totalAmount);
+  //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+    }
+  };
 }
 
 function openCheckoutModal() {
   document.getElementById("checkoutModal").classList.remove("hidden");
   document.getElementById("checkoutModal").style.display = "flex"; // Ensure it displays as flex
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "index.php?amount=" + totalAmount);
+  //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+    }
+  };
 }
 
 function closeCheckoutModal() {
